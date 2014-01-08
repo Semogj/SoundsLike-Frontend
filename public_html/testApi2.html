@@ -1,0 +1,40 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/vendorLibs/jquery-1.8.0/jquery.js"></script>
+        <script src="js/vendorLibs/json3-3.2.4/json3.js"></script>
+        <script src="js/movieCloundsApi.js"></script>
+    </head>
+    <body>Object
+        <div>This is the MovieClouds JS API test for interaction with the webservice. The output is in the javascript console.</div>
+        <script>
+//            $.ajax({url: "http://localhost/VIRUS-AudioEvents-Webservice/webservice/index.php/apiv1/video/", type: 'GET', 
+//            $.ajax({url: "http://localhost/VIRUS-AudioEvents-Webservice/webservice/index.php/", type: 'GET', 
+//                success: function(a){
+//                    console.log(a);
+//                },
+//                complete: function(a, b){
+//                console.log(a);
+//                console.log(b);
+//            }});
+
+            var api = new MovieCloudsApi('http://localhost/VIRUS-AudioEvents-Webservice/webservice/index.php/', 1);
+            api.soundtag.post(7, 1, ["postTag3", "postTag4", "postTag5"], null, null, function(success, response, c, d) {
+                console.log("--------getVideos----");
+                console.log(success);
+                console.log(response);
+                console.log(c);
+                console.log(d);
+            });
+
+
+
+        </script>
+    </body>
+</html>

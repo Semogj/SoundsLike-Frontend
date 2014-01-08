@@ -1,0 +1,153 @@
+.chart {
+    shape-rendering: crispEdges;
+}
+/* axis text of the top small timeline */
+.mini text {
+    font: 9px sans-serif;
+    /*fill: whitesmoke;*/
+    fill:#6B6B6B;
+}
+/* axis text of the bottom zoomed timeline */
+.main text {
+    font: 12px sans-serif;	
+/*    fill:whitesmoke;*/
+    fill:#6B6B6B;
+}
+
+.month text {
+    text-anchor: start;
+}
+
+.todayLine {
+    stroke: blue;
+    stroke-width: 1.5;
+}
+
+.main.axis line, .main.axis path {
+    /*stroke: whitesmoke;*/
+    /*fill:#B3B3B3;*/
+    fill: #FFFFFF;
+    stroke: #FFFFFF;
+    stroke-width: 3px;
+    
+}
+.mini.axis line, .mini.axis path {
+    /*stroke: whitesmoke;*/
+    /*fill:#B3B3B3;*/
+    fill: none    
+}
+
+.mainGraph .scroll polygon{
+    fill: whitesmoke;
+    stroke: #111111;
+    stroke-width: 2px;
+}
+.mainGraph .scroll polygon:hover{
+    fill: #DDDDDD;
+    stroke-width: 1px;
+}
+.mainGraph .scroll polygon:active{
+    fill: #AAAAAA;
+    stroke-width: 1px;
+}
+.mainGraph .now line, .miniGraph .now line{
+    fill #FFFFFF;
+    stroke: rgb(187, 4, 4);
+}
+.mainGraph .now line
+{
+    stroke-width: 4px;
+}
+.miniGraph .now line{
+
+    stroke-width: 2px;
+}
+
+.axis text{
+    /*font-family: verdana, sans-serif;*/
+    /*font-size: 120%;*/
+}
+
+.mainItem {
+    /*stroke-width: 4px;*/
+    stroke: #000000;
+    stroke-linecap: round;
+}
+/*.mainItem.selected{
+    stroke: #33ff00 !important;
+    color: 
+}*/
+
+.miniItem.selected, .mainItem.selected{
+    /*fill: green;*/
+    
+    /*stroke : #33ff00;*/ 
+    stroke : red; 
+    /*border: #33ff00 3px solid !important;*/
+    /*border: red 3px solid !important;*/
+}
+.miniItem.selected{
+    stroke-width: 8px;
+    fill:red;
+}
+.mainItem.selected{
+    stroke-width: 3px;
+}
+.miniItem.playing, .mainItem.playing{
+    stroke : #993300 !important; 
+    stroke-width: 4px;
+}
+.miniItem.playing{
+    stroke-width: 8px;
+    fill:brown !important;
+}
+.mainItem.playing{
+    stroke-width: 4px;
+}
+.miniItem.even{
+    /*fill: #F5F5F5; whitesmoke = #F5F5F5*/
+}
+.miniItem.odd{
+    /*fill: #CCCCCC;*/
+}
+
+.itemTagged{
+    fill: #2B9C2B !important;
+    background-color: #2B9C2B !important;
+    color: #000000;
+}
+.itemNormal{
+    fill: dimgray;
+    background-color: dimgray;
+}
+.itemSkipped{
+    fill: #C49C00 !important; 
+    color: #000000;
+    background-color: #C49C00 !important;
+}
+.itemNow{
+    fill: #1038d4 !important; 
+    background-color: #1038d4;
+    color: #FFFFFF;
+}
+
+.future {
+    stroke: whitesmoke;
+    fill: #ddd;
+}
+
+.past {
+    stroke: whitesmoke;
+    fill: whitesmoke    ;
+}
+
+.brush .extent {
+/*    stroke: #cc00cc;*/
+    stroke: #FFFFFF;
+    stroke-width: 3;
+    /*fill: #cc00cc;*/
+    fill: #FFFFFF;
+    fill-opacity: .165;
+    /*stroke-linecap: round;*/
+}
+

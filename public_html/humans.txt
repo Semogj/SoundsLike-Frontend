@@ -1,0 +1,29 @@
+/* humanstxt.org/ */
+/* The humans responsible & technology colophon */
+
+/* TEAM */
+	Web developer: Jorge Gomes
+	Contact: jorgegomes50 [at] gmail [dot] com 
+	From: Lisboa, Portugal
+
+        Project header: Teresa Chambel
+	Contact: tc [at] di [dot] fc [dot] ul [dot] pt 
+	From: Lisboa, Portugal
+
+        Project header: Thibault Langlois
+	Contact: tl [at] di [dot] fc [dot] ul [dot] pt 
+	From: Lisboa, Portugal
+
+/* Thanks */
+
+
+/* TECHNOLOGY COLOPHON */		
+
+    HTML5, CSS3
+    jQuery, Modernizr
+    d3js, buzz, jstorage, json3    
+
+/* SITE */
+	Language: English
+	Doctype:HTML5
+	IDE: Sublime Text, Notepad++, FileZilla, Photoshop

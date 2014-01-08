@@ -1,0 +1,922 @@
+@import "progressbar.css";
+@import "timelines.css";
+
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body{
+    font-family: Helvetica, sans-serif, Arial;
+    margin: 0px;
+    background: url(../img/back.jpeg);
+    background-repeat: no-repeat;
+    background-color: #000000;
+    background-position: center top;
+
+}
+body, a {
+    color: #FFFFFF;
+    /** url styling remove */
+    text-decoration: none;
+    cursor: auto;
+}
+a:link, a:visited {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#wrapper {
+    width: 940px;
+    /*position: relative;*/
+    padding: 0;
+    margin: 0px auto; 
+}
+
+/* ----- TOP SECTION (logo & hud) -----*/
+#topSection{
+    height: 100px;
+}
+/* ----- PAGE HEADER -----*/
+#topSection header{
+    float: left;    
+}
+#pageHeader{
+    margin: 5px 0 0 0;
+    height: 100px;
+}
+#pageHeader h1 {
+    font-size: 50px;
+    font-family: sans-serif, Arial;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #5A5A5A, -1px -1px 0px #000000;
+    margin: 0px;
+}
+
+#pageHeader h2 {
+    font-size: 26px;
+    font-family: Helvetica, sans-serif, Arial;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #5A5A5A, -1px -1px 0px #000000;
+    margin: -10px 0 0 0;
+}
+/* ----- TOP HUD -----*/
+#userHud{
+    width: 330px;
+    float: right;
+    margin: 20px 0 0 0;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+}
+#userHud .greeting{
+    margin: 0 0 3px 5px;
+    font-size: larger;
+}
+#userHud .progress-bar
+{
+    position: relative;
+    height: 25px;
+    padding: 5px;
+    float:left;
+    /* ---text--- */
+    line-height: 25px;
+    vertical-align: middle;
+    width: 250px;
+}
+#userHud .points{
+    position: absolute;
+    margin: 5px 0 0 10px;
+    top: 0px;
+    left: 0px; 
+    color: #FFEB03;
+}
+#userHud .rank {
+    position: absolute;
+    margin: 5px 8px 0 0;
+    top: 0px;
+    right: 0px;
+    color: limegreen;
+}
+#userHud .button{
+    float: right;
+    width: 64px;
+    height: 60px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 9px;
+    text-align: center;
+    cursor: pointer;
+    padding: 35px 0 0 0;
+    background: url("../img/star.png") no-repeat;
+    margin: 0 0px;
+    background-size: 40px;
+    background-position: 50% 0px;
+}
+#userHud .button a{
+
+}
+
+
+.username {
+
+}
+/* ----- PAGE CONTENT -----*/
+#content{
+    width: 100%;
+    height: 625px;
+    /*border: 2px solid orange;*/
+}
+#content div{
+    /*    border: 1px dotted #FFFFFF;*/
+}
+
+#contentHeader{
+    height: 25px;
+}
+#contentBody{
+}
+
+#content h1, #content h2, #content h3, #content h4{
+    margin: 10px 0 4px 0
+}
+
+/* ----- LEFT CONTENT SECTION -----*/
+#leftSection{
+    float:left;
+    width: 460px;
+    /*    padding: 0p 20px 0 10px;*/
+    /*    border: 1px dotted #FFFFFF;*/
+}
+#videoSection{
+    /* FIXME:REMOVE THIS */
+    /*    height: 300px;*/
+
+    /* 16:9 */
+    max-height: 300px;
+    /* 4:3 */
+    /*min-height: 225px;*/
+    /* 16:10 */
+    min-height: 187.5px;
+    padding-bottom: 5px;
+}
+#videoSection video{
+    width: 100%;
+}
+
+#timelineSection{
+    height: 190px;
+    /*height: 240px;*/
+    /*border: 1px dotted #FFFFFF;*/
+    /*background: whitesmoke;*/
+    ;
+    margin-top: 5px;
+}
+#audioSection{
+    width: 100%;
+    /*height: 80px;*/
+}
+
+#audioSection .audioExcerpt{
+    width: 100%;
+    height: 60px;
+    background: dimgrey;
+    border: 5px solid #1038d4;
+    margin: 10px 0 0 -5px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    overflow: hidden;
+    position: relative;
+    background: url(../img/spectogram.png) no-repeat;
+    background-size: 100% 130%
+}
+#audioSection .now{
+    height: 100%;
+    position:absolute;
+    width: 4px;
+    background: red;
+    left: -10px;
+}
+.audioExcerpt .audioProgress{
+    float: left;
+    /*width: 85%;*/
+    height: 50px;
+}
+.audioExcerpt .audioControll{
+    float: right;
+    width: 14%;
+    height: 50px; 
+    border-left: 1px solid #FFFFFF;
+    background-image: url("../img/play_white.png");
+    background-size: 50px;
+    background-position: 50%;
+    cursor: pointer;
+}
+
+/* ----- RIGHT CONTENT SECTION -----*/
+#rightSection{
+    width: 455px;
+    float: right;
+}
+#rightSection .button{
+    margin: 10px 40px 0 20px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+}
+
+#rightSection .button.active:active{
+    background: white;
+}
+#rightSection .button.active:hover{
+    border: 2px white solid;
+    padding: 0px;
+}
+#rightSection .button.disabled:active{
+
+}
+#rightSection .button.disabled:hover{
+    padding: 2px;
+    border: none;
+}
+#rightSection .button.disabled{
+    opacity: 0.4;
+    padding: 0px;
+    padding: 2px;
+    background: #8F8F8F;
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-linear-gradient(bottom, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(bottom, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+    /* Opera */ 
+    background-image: -o-linear-gradient(bottom, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8F8F8F), color-stop(0.5, #B8B8B8), color-stop(1, #8F8F8F));
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(bottom, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: linear-gradient(to top, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);    
+}
+
+
+#similarSection{
+    /*height: 350px;*/
+}
+#similarSection .canvas{
+    width: 100%;
+    height: 295px;
+    /*border: 1px solid #FFFFFF;*/
+    /** needed for the graph **/
+    position: relative;
+    overflow: hidden;
+}
+.canvas .node{
+    position: absolute;
+    z-index: 500;
+    display: table;
+    /*border: 2px so    lid #98baff;*/
+    /*background-color: #aaaaaa;*/
+    background-color: dimgray;
+    /*transition-property: opacity, width, height, background-color, border, margin, padding;*/
+    /*transition-duration: 2s;*/
+
+}
+.canvas .node:not(.itemNow):not(.itemTagged):not(.itemSkipped){
+    border: #585858 2px solid;
+    margin: -2px 0 0 -2px;
+}
+.canvas .node.itemNow{
+    background-color: #1038D4;
+    margin: -4px 0 0 -4px;
+}
+.canvas .node.itemNow.tagged{
+    border: 4px limegreen solid;   
+}
+.canvas .node.itemNow.skipped{
+    border: 4px #C49C00 solid;
+}
+.canvas .node.itemNow.normal{
+    border: 4px dimgray solid;
+}
+#similarSection .canvas .text{
+    width: 100%;
+    font-size: 10px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: bold;
+    cursor: default;
+}
+#similarSection .canvas .link {
+    position: absolute;
+    border: 1px solid #5F5F5F;
+    border-style: solid;
+    height: 2px;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+.node.playing{
+    /*border: #33ff00 3px solid !important;*/
+    /* #993300 = brown */
+/*    border: #993300 3px solid !important; 
+    margin-top: -3px;
+    margin-left: -3px;*/
+    border-color: #993300 !important;
+}
+.node.itemNow, .node.itemSkipped, .node.itemTagged{
+    border: 2px solid;
+    margin: -2px 0 0 -2px;
+}
+
+.node.itemSkipped{
+    border-color: #C49C00;
+}
+.node.itemTagged{
+    border-color: #2B9C2B;
+}
+#similarSection .node.selected{
+    /*border: #33ff00 3px solid !important;*/
+/*    border: red 3px solid;
+    margin-top: -3px;
+    margin-left: -3px;*/
+    border-color: red;
+}
+video.playing{
+    border: #993300 3px solid !important; 
+}
+#tagsSection{
+    max-height: 200px;
+    /*height: 200px;*/
+    /*border: 1px dotted #FFFFFF;*/
+    ;
+    height: 170px;
+}
+#tagsSection h3{
+    font-weight:normal;
+}
+#tagsSection .bold{
+    font-weight: bold;
+}
+#tagsSection .tagArea{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    overflow-y: auto;
+    /*height: 165px;*/
+    max-height: 165px;
+    position: relative;
+    padding: 2px 5px;
+    font-size: 14px;
+    min-height: 100px;
+}
+#tagsSection .tagArea .loading{
+    height: 98px;
+}
+#tagsSection .elem{
+    display: inline-block;
+    display: inline-block;
+    margin: 4px 6px;
+    cursor: pointer;
+    /*border: 1px white solid;*/
+    padding: 4px 10px;
+    border-radius: 4px;
+
+    /* ------------- gradient ------------- */
+    /* fallback/image non-cover color */
+    background-color: #121212   ; 
+    /* fallback image */
+    /*background-image: url(images/fallback-gradient.png);*/ 
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-linear-gradient(bottom, #121212 0%, #242424 50%, #121212 100%);
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(bottom, #121212 0%, #242424 50%, #121212 100%);
+    /* Opera */     
+    background-image: -o-linear-gradient(bottom, #121212 0%, #242424 50%, #121212 100%);
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #121212), color-stop(0.5, #242424), color-stop(1, #121212));
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(bottom, #121212 0%, #242424 50%, #121212 100%);
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: linear-gradient(to top, #121212 0%, #242424 50%, #121212 100%);
+}
+
+#tagsSection .elem:hover{
+    border: 2px #555 solid;
+    padding: 2px 8px;
+}
+#tagsSection .elem:active{
+    background: #555;
+}
+
+#tagsSection .selected:after, #tagsSection .discard:after{
+    /*background-image: url("img/ok-icon.png");*/
+    height: 16px;
+    width: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    content: "";
+    margin: -10px 0 0 0;
+    position: absolute;
+}
+
+#tagsSection .selected:after{
+    background-image: url("../img/ok-icon.png");
+}
+#tagsSection .tag.added{
+    padding: 3px 9px;
+    border: 1px #797777 solid; /* soft orange border */
+}
+#tagsSection .usertag.selected, #tagsSection .usertag.discard{
+    padding: 3px 9px;
+    border:  1px #33ff00 solid; /* green border */
+}
+#tagsSection .selected{
+    padding: 3px 9px;
+
+}
+#tagsSection .discard:after{
+    background-image: url("../img/close-icon.png");
+}
+#tagsSection .addTag{
+    margin: 4px 0 0 5px;
+    height: 22px;
+    width: 100px;
+    display: inline-block;
+    color: whiteSmoke;
+    background: #313131;
+    border-color: black;
+}
+#timelineLegend div{
+    font-size: 10px;
+    /*border: whitesmoke solid 1px;*/
+    padding: 2px 5px;
+    font-weight: bold;
+}
+
+/* ----- CONTENT FOOTER -----*/
+#contentFooter{
+    height: 36px;
+}
+#contentFooter .button{
+    margin: 2px 60px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold
+}
+
+#pageFooter{
+    height: 25px;
+    /*border: #FFFFFF dashed 1px;*/
+}
+
+
+#resolutionMark{
+    /* my auto imposed screen limits */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: #cc0000 dotted 2px;
+    width: 1200px;
+    height: 750px;
+    margin: 0 auto;
+    z-index: -100;
+}
+
+.button{
+    height: 28px;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px;
+    background: #8F8F8F;
+    font-weight: bold;
+    font-size: 12px;
+    color: #1F1E1D;
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-linear-gradient(bottom, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(bottom, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+    /* Opera */ 
+    background-image: -o-linear-gradient(bottom, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8F8F8F), color-stop(0.5, #B8B8B8), color-stop(1, #8F8F8F));
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(bottom, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: linear-gradient(to top, #8F8F8F 0%, #B8B8B8 50%, #8F8F8F 100%);
+}
+.button:hover{
+    border: 2px #FFFFFF solid;
+    padding: 0px;
+}
+.button:active{
+    background: #FFFFFF;
+}
+
+.left{
+    float: left;
+    margin-right: 5px;
+}
+.right{
+    float: right;
+    margin-left: 5px;
+}
+.error{
+    color: red;
+    font-weight: bold;
+}
+.error.box{
+    margin: 2px;
+    padding: 2px;
+    border: red 2px solid;
+    background: #ff9999;
+}
+.warning{
+    color: orangered;
+    font-weight: bold;
+}
+.warning.box{
+    margin: 2px;
+    padding: 2px;
+    border: #ff9900 2px solid;
+    background: #ffcc66;
+}
+.fine{
+    color: green;
+    font-weight: bold;
+}
+.fine.box{
+    margin: 2px;
+    padding: 2px;
+    border: #33ff00 2px solid;
+    background: #ccff99;
+}
+ul.selectionList li{
+    cursor: pointer !important;
+}
+ul.selectionList li:hover{
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer !important;
+}
+
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    opacity: 0.7;
+    z-index: 99;
+    text-align: center;
+    vertical-align:middle;
+    background: url(../img/ajax-loader.gif) no-repeat center center 
+}
+
+.loading-image {
+    position: absolute;
+    top: 30%;
+    z-index: 100;
+}
+.tooltip{
+    background-color: #505050;
+    border-color: #303030;
+    color: #f3f3f3;
+    border-radius: 4px 4px 4px 4px;
+    text-align: center;
+    -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip .qtip-titlebar{
+    background-color: #404040;
+}
+
+.tooltip .qtip-icon{
+    border-color: #444;
+}
+
+.tooltip .qtip-titlebar .ui-state-hover{
+    border-color: #303030;
+}
+.tooltip .qtip-content{
+    font-size: 12px;
+    padding: 8px;
+}
+
+#notificationArea {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 18px;
+    line-height: 18px;
+    text-align:  center;
+    width: 500px;
+    margin: 0 0 0 -250px;
+    background:  whitesmoke;
+    font-size: 12px;
+    border: 2px solid;
+}
+#notificationArea.error{
+    background:  whitesmoke;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 144dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow:none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+

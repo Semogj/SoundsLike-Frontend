@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!--<script data-main="js/main" src="scripts/require.js"></script>-->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/video-js.css">
+
+        <!--<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">-->
+        <!--<script src="http://vjs.zencdn.net/c/video.js"></script>-->
+        <!--<script data-main="js/main.js" src="js/vendorLibs/require-2.1.2/require.js"></script>-->
+        <script src="js/vendorLibs/jquery-1.8.0/jquery.js"></script>
+        <script src="js/vendorLibs/jquery.ba-bbq.js"></script>
+        <script src="js/jquery.balloon.js"></script>
+        <script src="js/vendorLibs/modernizr-2.6.1/modernizr.min.js"></script>
+        <script src="js/vendorLibs/d3-3.0.4/d3.v3.js"></script>
+        <script src="js/vendorLibs/jqueryui-1.8.23/jquery-ui.js"></script>
+        <script src="js/vendorLibs/jStorage-0.1.6.1/jstorage.min.js"></script>
+        <script src="js/vendorLibs/json3-3.2.4/json3.js"></script>
+        <script src="js/vendorLibs/video-js-3.2.0/video.js"></script>
+        <script src="js/vendorLibs/wavesurfer/wavesurfer.js"></script>
+        <script src="js/vendorLibs/wavesurfer/webaudio.js"></script>
+        <script src="js/vendorLibs/wavesurfer/audio.js"></script>
+        <script src="js/vendorLibs/wavesurfer/drawer.js"></script>
+        <script src="js/forceGraphVis.js"></script>
+        <script src="js/virusDataSource.js"></script>
+        <script src="js/similarGraph.js"></script>
+        <script src="js/timelines.js"></script>
+        <script src="js/soundsLike.js"></script>
+        <script src="js/movieCloundsApi.js"></script>
+        <!--        <script>requirejs.config({baseUrl: 'js/'});</script>-->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <div id="wrapper">
+
+            <div id="tagsSection">
+                <h3>Click on the tags bellow to <span class="selected">accept</span> or <span class="discard">reject</span> them:</h3>
+                <div class="tagArea clearfix">
+                    <div class="tag">music</div>
+                    <div class="tag">intense</div>
+                    <div class="tag">singing</div>
+                    <div class="tag">dancing</div>
+                    <div class="tag">guitar</div>
+                    <div class="tag">telephone</div>
+                    <div class="tag">crowd</div>
+                    <div class="tag">voices</div>
+                    <div class="tag">conversation</div>
+                    <div class="tag">"car race"</div>
+                    <div class="tag">happy</div>
+                    <div class="tag">melodic</div>
+                    <div class="tag">confusion</div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--<div id="resolutionMark"></div>-->
+
+        <script>
+
+
+            $('#userHud .progress-bar span').animate({width: ['60%', 'linear']}, 1500);
+
+            var api = new MovieCloudsApi('http://localhost/VIRUS-AudioEvents-Webservice/webservice/index.php/');
+
+
+            var cache = {};
+
+
+            $(window).bind('hashchange', function(event) {
+                var pageParams = $.deparam.fragment(); //retrieves #values from the URL
+
+                var movieId = pageParams.mid || 0;
+                if (movieId > 0) {
+                    console.log('MovieId = ' + movieId);
+                    try {
+                        var backend = new SoundsLike(api, movieId);
+                    } catch (e) {
+                        console.log("Error in SoundsLike backend!");
+                    }
+
+                } else {
+                    var contentDOMsel = $('#content');
+                    cache['pageContent'] = contentDOMsel.html();
+
+                    var movies = api.video.get(function(success, moviesArray) {
+                        var html = '';
+                        if (!success) {
+                            html = ('<div class="error box">Failed to connect to the webservice!</div>');
+                        } else {
+                            html = '<p>Select a movie from the following list:</p> <ul class="selectionList">';
+                            if (moviesArray.length === 0) {
+                                html += '<li>No entries...</li>';
+                            }
+                            else {
+                                var video;
+                                for (var i = 0; i < moviesArray.length; i++) {
+                                    video = moviesArray[i];
+                                    html += '<li><a onclick="changeState(' + video.idvideo + ')">' + video.title + ' ' +
+                                            (video.year > 0 ? '(' + video.year + ')' : '') + '</a></li>';
+                                }
+                            }
+                            html += '</ul>';
+                        }
+                        contentDOMsel.html(html);
+
+                    });
+
+                }
+
+            });
+            function changeState(videoId) {
+                $.bbq.pushState({mid: videoId});
+            }
+            $(window).hashchange();
+//            var canvas = document.querySelector('#audioCanvas');
+//            var wavesurfer = Object.create(WaveSurfer);
+//            wavesurfer.init({
+//                canvas: canvas,
+//                waveColor: 'violet',
+//                progressColor: 'purple',
+//                loadingColor: 'purple',
+//                cursorColor: 'navy'
+//            });
+//            
+//            var drawer = Object.create(WaveSurfer.Drawer);
+//            drawer.init({
+//                canvas: canvas,
+//                waveColor: 'violet',
+//                progressColor: 'purple',
+//                loadingColor: 'purple',
+//                cursorColor: 'navy'
+//            });
+//            rawer.drawBuffer(this.backend.currentBuffer);
+//            
+//            wavesurfer.load('resources/movies/Tears-Of-Steel/tears_of_steel_1080p.ogg');
+//            wavesurfer.bindDragNDrop();
+//            document.addEventListener('keypress', function(e) {
+//                // spacebar
+//                if (32 == e.keyCode) {
+//                    wavesurfer.playPause();
+//                }
+//            });
+
+        </script>
+
+
+        <!--        <script src="js/plugins.js"></script>
+                <script src="js/main.js"></script>-->
+
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!--        <script>
+                    var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+                    (function(d, t) {
+                        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                        g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+                        s.parentNode.insertBefore(g, s)
+                    }(document, 'script'));
+                </script>-->
+    </body>
+</html>

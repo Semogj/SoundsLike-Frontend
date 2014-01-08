@@ -1,0 +1,139 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/vendorLibs/jquery-1.8.0/jquery.js"></script>
+        <script src="js/vendorLibs/json3-3.2.4/json3.js"></script>
+        <script src="js/movieCloundsApi.js"></script>
+    </head>
+    <body>Object
+        <div>This is the MovieClouds JS API test for interaction with the webservice. The output is in the javascript console.</div>
+        <script>
+//            $.ajax({url: "http://localhost/VIRUS-AudioEvents-Webservice/webservice/index.php/apiv1/video/", type: 'GET', 
+//            $.ajax({url: "http://localhost/VIRUS-AudioEvents-Webservice/webservice/index.php/", type: 'GET', 
+//                success: function(a){
+//                    console.log(a);
+//                },
+//                complete: function(a, b){
+//                console.log(a);
+//                console.log(b);
+//            }});
+
+            var api = new MovieCloudsApi('http://localhost/VIRUS-AudioEvents-Webservice/webservice/index.php/',1);
+            api.video.get(function(a, b, c, d) {
+                console.log("--------getVideos----");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+Object
+            api.video.get(function(a, b, c, d) {
+                console.log("--------getVideos WITH LIMIT AND PAGE---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            }, 2, 2);
+
+            api.video.getSingle(3, function(a, b, c, d) {
+                console.log("--------GET SINGLE VIDEO---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.soundsegment.get(function(a, b, c, d) {
+                console.log("--------GET SoundSegment---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.soundsegment.getSingle(3, function(a, b, c, d) {
+                console.log("--------GET SoundSegment with id 3---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.soundsegment.tags.get(7, function(a, b, c, d) {
+                console.log("--------GET tags of SoundSegment with id 7---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.soundsegment.tags.getByUser(7, 2, function(a, b, c, d) {
+                console.log("--------GET tags of SoundSegment with id 7 by user with id 2 ---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.video.soundsegment.get(6,function(a, b, c, d) {
+                console.log("--------GET video  6 SoundSegments---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.video.soundsegment.getSingle(6,7,function(a, b, c, d) {
+                console.log("--------GET video 6 Segment with id 7---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.video.soundsegment.getSimilar(6,7,function(a, b, c, d) {
+                console.log("--------GET video 6, segment with id 7 similar---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+        
+            api.user.get(function(a, b, c, d) {
+                console.log("--------GET users---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.user.getSingle(2,function(a, b, c, d) {
+                console.log("--------GET user with id 2---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.user.getTags(2,function(a, b, c, d) {
+                console.log("--------GET soundtags of user with id 2---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.soundtag.get(function(a, b, c, d) {
+                console.log("--------GET all soundtags of user with id 2---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            api.soundtag.getSingle(31, function(a, b, c, d) {
+                console.log("--------GET soundtag with id 32---------");
+                console.log(a);
+                console.log(b);
+                console.log(c);
+                console.log(d);
+            });
+            
+        </script>
+    </body>
+</html>
