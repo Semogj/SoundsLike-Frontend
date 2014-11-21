@@ -45,8 +45,18 @@ Installation Instructions
 * MySQL 5.0 or higher;
 * Mozilla Firefox 22 / Chrome 28 / Opera 13 / Internet Explorer 9 (untested!) or higher versions;
 
-##Install Apache+Mysql+PHP (in linux):
-Note: you will need superuser access.
+##Install Apache+Mysql+PHP (in Windows 7 / 8):
+**TODO: the instalation guide for windows is incomplete!**
+
+1. Download XAMPP package installer for windows (from http://apachefriends.org) and follow the installer instructions;
+2. ????
+3. profit! ;)
+4. Test: http://localhost/ and you will see a XAMPP test page (or at least a page saying hi!)
+5. Go to the "Installing SoundsLike" section below.
+
+
+##Install Apache+Mysql+PHP (in Linux based OS):
+Note: you will need superuser access... and some patience. :)
 
 1. Download XAMPP package installer for linux (from http://apachefriends.org);
   
@@ -74,9 +84,11 @@ Note: you will need superuser access.
    **IMPORTANT!!!!** ----> Take note of all inserted passwords, including MySQL root password.
                        **Do not leave mysql root user with an empty password!**	
 
-6. Test: http://localhost/
+6. Test: http://localhost/ and you will see a XAMPP test page (or at least a page saying hi!)
 
-###Info:
+7. Go to the "Installing SoundsLike" section below.
+
+### Apache server info (for Linux operative systems):
 
 ####START AND STOP PARAMETERS
 
@@ -178,5 +190,11 @@ The webservice will log everything to "/opt/lampp/htdocs/virus-webservice/logs/"
  Find "var api = new MovieCloudsApi(" and add the webservice url. <br />
    Webservice url is "http://localhost/virus-webservice/index.php/"
 
+## Data and test resources:
 
+For testing, we crunched some data from the "Back To The Future" movie. 
 
+You can find the database [here](https://github.com/Semogj/SoundsLike-Virus-Webservice) and the used resources (the video and audio) [here](https://mega.co.nz/#F!Y9xFAJSI!f6d2HCVOOqQvMJMZZvkfjg).
+
+The Back To The Future files (and future movies) goes inside the resources folder, using the following structure:
+> <VIRUS-SoundsLike-Frontend directory>/public_html/resources/movies/BacktotheFuture
