@@ -1,6 +1,8 @@
 #SoundsLike Frontend
 
-SoundsLike presents as an web application for audio classification game for movies, associated to the VIRUS project. The system was designed in three tiers: the presentation tier, the logic tier and data tier. This repository holds the sources for the web frontend, representing the presentation tier of the system.
+SoundsLike presents as an web application for audio classification game for movies, associated to the VIRUS project. 
+
+The system was designed in three tiers: the presentation tier, the logic tier and data tier. This repository holds the sources for the web frontend, representing the presentation tier of the system.
 
 [Go here for the backend, contains an PHP webservice and database](https://github.com/Semogj/SoundsLike-Backend)
 
