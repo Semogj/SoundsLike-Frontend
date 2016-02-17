@@ -1,18 +1,25 @@
-SoundsLike-Frontend
-===================
+#SoundsLike Frontend
 
-The SoundsLike prototype sources (HTML 5 project). 
+SoundsLike presents as an web application for audio classification game for movies, associated to the VIRUS project. The system was designed in three tiers: the presentation tier, the logic tier and data tier. This repository holds the sources for the web frontend, representing the presentation tier of the system.
 
-The system is composed by three tiers or layers: presentation tier, logic tier and data tier. This repository holds the SoundsLike front-end that fits in the presentation tier of the system.
+[Go here for the backend, contains an PHP webservice and database](https://github.com/Semogj/SoundsLike-Backend)
 
-[Go here for the webservice and database](https://github.com/Semogj/SoundsLike-Virus-Webservice)
+### Technology and Library
+
+The front-end uses widespread web technologies such as HTML5, Javascript (ES15) and CSS3. 
+Some of the main javascript libraries used:
+- JQuery 1.8 and JQuery UI 1.8 for DOM and HTML manipulation, assyncronous communication and almost everything else :).
+- D3.js 3.0 for SVG and HTML5 visutalization, through a data-oriented framework.
+- Buzz 1.0 for the reprodution of audio excerpts in HTML5 pages.
+- Video.js as HTML5 Video Player for reproducing film excerpts.
+- And others for minor features... please look up in the sources.
 
 ##Context
 
 This work is associated to the VIRUS - “Video Information Retrieval Using Subtitles” (Langlois et al., 2010)  academic research project (http://virus.di.fc.ul.pt) and elaborated as a final project of  the Computer Science Engineering Master course of Faculty of Sciences, University of Lisbon, in the context of the HCIM group at LaSIGE, FCUL.
 
-The SoundsLike Prototype
-===================
+##SoundsLike Project - Introduction
+
 
 SoundsLike is a prototype which is integrated directly as a part of MovieClouds for the
 purpose of classifying and browsing movies’ soundtracks.
@@ -37,8 +44,7 @@ and in terms of the definition of the game and the movie browsing in order to st
 interest of the user in labelling audio excerpts inside the movies, allowing the collection
 of data that will help solve the cold start problem for the classification of audio events.
 
-Installation Instructions
-=====================
+#Installation Instructions
 
 ##Requirements
 * Apache HTTP server with PHP 5.3 or higher;
